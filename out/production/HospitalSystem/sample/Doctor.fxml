@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DoctorController">
+   <children>
+      <Label layoutX="260.0" layoutY="14.0" text="医生界面">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TabPane layoutY="40.0" prefHeight="361.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#clickSearchBtn" text="病人列表">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="patientTable" prefHeight="287.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="patiGHBH" prefWidth="108.0" text="挂号编号" />
+                            <TableColumn fx:id="patiBRXM" prefWidth="135.0" text="病人姓名" />
+                              <TableColumn fx:id="patiGHSJ" prefWidth="252.0" text="挂号时间" />
+                              <TableColumn fx:id="patiGHLX" prefWidth="104.0" text="挂号类型" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="139.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickRefreshPatient" text="更新" />
+                        <Button layoutX="411.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickExitBtn" text="退出" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#clickRefreshPatient" text="收入列表">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="incomeTable" prefHeight="255.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="incomeKSMC" prefWidth="103.0" text="科室名称" />
+                            <TableColumn fx:id="incomeYSBH" prefWidth="93.0" text="医生编号" />
+                              <TableColumn fx:id="incomeYSXM" prefWidth="104.0" text="医生姓名" />
+                              <TableColumn fx:id="incomeHZLB" prefWidth="100.0" text="号种类别" />
+                              <TableColumn fx:id="incomeGHRC" prefWidth="111.0" text="挂号人次" />
+                              <TableColumn fx:id="incomeSRHJ" prefWidth="88.0" text="收入合计" />
+                          </columns>
+                        </TableView>
+                        <DatePicker fx:id="startDayPicker" layoutX="66.0" layoutY="262.0" />
+                        <Label layoutX="8.0" layoutY="267.0" text="起始时间" />
+                        <Label layoutX="8.0" layoutY="297.0" text="截止时间" />
+                        <DatePicker fx:id="endDayPicker" layoutX="66.0" layoutY="292.0" />
+                        <Button fx:id="searchBtn" layoutX="413.0" layoutY="276.0" mnemonicParsing="false" onAction="#clickSearchBtn" text="查询" />
+                        <TextField fx:id="startHourText" layoutX="285.0" layoutY="262.0" prefHeight="20.0" prefWidth="30.0" />
+                        <TextField fx:id="endHourText" layoutX="285.0" layoutY="292.0" prefHeight="20.0" prefWidth="30.0" />
+                        <Button layoutX="474.0" layoutY="276.0" mnemonicParsing="false" onAction="#clickSearchBtn" text="刷新" />
+                        <Label layoutX="323.0" layoutY="268.0" text="时" />
+                        <Label layoutX="323.0" layoutY="295.0" text="时" />
+                        <Button layoutX="536.0" layoutY="276.0" mnemonicParsing="false" onAction="#clickExitBtn" text="退出" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
